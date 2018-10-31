@@ -1,0 +1,235 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx 
+  labels:
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    app.kubernetes.io/name: nginx 
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx 
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      annotations:
+      labels:
+        app: nginx 
+    spec:
+      containers:
+        - name: nginx-container
+          image: "nginx:1.11.0"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          env:
+            - name: FOO_01
+              value: "foo"
+            - name: FOO_02
+              value: "foo"
+            - name: FOO_03
+              value: "foo"
+            - name: FOO_04
+              value: "foo"
+            - name: FOO_05
+              value: "foo"
+            - name: FOO_06
+              value: "foo"
+            - name: FOO_07
+              value: "foo"
+            - name: FOO_08
+              value: "foo"
+            - name: FOO_09
+              value: "foo"
+            - name: FOO_10
+              value: "foo"
+# renaming ACCOUNTS_NAMESPACE allowed upgrade to work
+            - name: ACCOUNTS_NAMESPACE
+              value: "foo"
+            - name: FOO_A
+              value: "foo"
+            - name: FOO_B
+              value: "foo"
+            - name: FOO_C
+              value: "foo"
+            - name: FOO_D
+              value: "foo"
+# renaming RELEASE_REVISION allowed upgrade to work
+            - name: RELEASE_REVISION
+              value: "foo"
+            - name: APP_NAME
+              value: "foo"
+            - name: XXXX_PARTIAL_DEBUG_LOGGING_LEVEL
+              value: "foo"
+            - name: XXXX_DEBUG
+              value: "foo"
+            - name: DJANGO_SETTINGS_MODULE
+              value: "foo"
+            - name: XXXX_DEPLOY_BASE_DIR
+              value: "foo"
+            - name: XXXX_DEPLOY_LOG_DIR
+              value: "foo"
+            - name: XXXX_DEPLOY_APP_DIR
+              value: "foo"
+            - name: XXXX_SYSLOG_ENABLE
+              value: "foo"
+            - name: XXXX_SYSLOG_TCP
+              value: "foo"
+            - name: XXXX_DEVOPS_EMAIL
+              value: "foo"
+            - name: XXXX_STATIC_CONTENT_URL
+              value: "foo"
+            - name: BBBBBBB
+              value: "foo"
+            - name: LLLLLLLLLLLLLLL
+              value: "foo"
+            - name: ROMEY_DOMAIN
+              value: "foo"
+            - name: DDDD_PORT
+              value: "foo"
+            - name: EMAIL_HOST
+              value: "foo"
+            - name: EMAIL_USE_TLS
+              value: "foo"
+            - name: ROMEY_CONFIG_SHARED_SECRET
+              value: "foo"
+            - name: EEE__LOG_FILE
+              value: "foo"
+            - name: EEE__CONSOLE_LOGGING
+              value: "foo"
+            - name: VENV
+              value: "foo"
+            - name: KMS_AVAILABLE
+              value: "foo"
+            - name: DB_USERNAME
+              value: "foo"
+            - name: DB_PASSWORD
+              value: "foo"
+            - name: DB_HOST
+              value: "foo"
+            - name: DB
+              value: "foo"
+            - name: DB_NAME
+              value: "foo"
+            - name: DB_PORT
+              value: "foo"
+            - name: POSTGRES_PATH
+              value: "foo"
+            - name: DATABASE_URL
+              value: "foo"
+            - name: PGPASSWORD
+              value: "foo"
+            - name: REDIS_HOST
+              value: "foo"
+            - name: RABBITMQ_USERNAME
+              value: "foo"
+            - name: RABBITMQ_PASSWORD
+              value: "foo"
+            - name: RABBITMQ_PORT
+              value: "foo"
+            - name: RABBITMQ_HOST
+              value: "foo"
+            - name: BROKER_URL
+              value: "foo"
+            - name: XYZ_1
+              value: "foo"
+            - name: XYZ_2
+              value: "foo"
+            - name: XYZ_3
+              value: "foo"
+            - name: QQQQQQQQQQQQQQQQQQQQQQQQ
+              value: "foo"
+            - name: RRRRRRRRRRRRRRRRRRRRRRRR
+              value: "foo"
+            - name: ACCOUNTS_SERVICE_URL
+              value: "foo"
+            - name: ACCOUNTS_SERVICE_VERIFY_SSL
+              value: "foo"
+            - name: ACCOUNTS_SERVICE_REDIRECT_URL
+              value: "foo"
+            - name: AUTH_SUPPORTS_JWT
+              value: "foo"
+            - name: JWT_CERT_FILE
+              value: "foo"
+            - name: JWT_ISSUER
+              value: "foo"
+            - name: ACCOUNTS_SERVICE_API_USERNAME
+              value: "foo"
+            - name: ACCOUNTS_SERVICE_API_EMAIL
+              value: "foo"
+            - name: ACCOUNTS_SERVICE_API_PASSWORD
+              value: "foo"
+            - name: ZZZZZZZZZZZZZ
+              value: "foo"
+            - name: SSSSSSSSSSSSSSSSSSSS
+              value: "foo"
+            - name: TTTTTTTTTTTTT
+              value: "foo"
+            - name: UUUUUUUUUUUUUUUUUUUUUUUUUUUU
+              value: "foo"
+            - name: VVVVVVVVVVVVVVVVVVVVVVVV
+              value: "foo"
+            - name: EPS_URL
+              value: "foo"
+            - name: EPS_USERNAME
+              value: "foo"
+            - name: EPS_PASSWORD
+              value: "foo"
+            - name: PSM_URL
+              value: "foo"
+            - name: PSM_USERNAME
+              value: "foo"
+            - name: PSM_PASSWORD
+              value: "foo"
+            - name: XXXXXXX_UI_URL
+              value: "foo"
+            - name: XXXXXXX_API_URL
+              value: "foo"
+            - name: SSQ_API_ENABLED
+              value: "foo"
+            - name: SSQ_API_URI
+              value: "foo"
+            - name: SSQ_VERIFY_SSL
+              value: "foo"
+            - name: SSQ_API_PASSWORD
+              value: "foo"
+            - name: SSQ_API_USERNAME
+              value: "foo"
+            - name: SSQ_RABBITMQ_USERNAME
+              value: "foo"
+            - name: SSQ_RABBITMQ_PASSWORD
+              value: "foo"
+            - name: SSQ_RABBITMQ_HOSTNAME
+              value: "foo"
+            - name: SSQ_RABBITMQ_VHOST
+              value: "foo"
+            - name: SSQ_RABBITMQ_PORT
+              value: "foo"
+# changing KMS_AVAILABLE value to "foo" allowed upgrade to work
+            - name: KMS_AVAILABLE
+              value: "xxxxxx"
+            - name: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+              value: "foo"
+            - name: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+              value: "foo"
+            - name: CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+              value: "foo"
+            - name: DCA_MESSAGE_APPLICATION__MESSAGE__CONSUMER__PREFETCH
+              value: "foo"
+            - name: SERVICE__MAX_RESTARTS
+              value: "foo"
+            - name: SERVICE_MODULE_NAME
+              value: "foo"
+            - name: DDDDDDDDDDDDDDDDD
+              value: "foo"
+# 8
+
